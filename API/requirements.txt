@@ -10,6 +10,7 @@ scikit-learn
 pandas
 numpy
 torch
+passlib[bcrypt]==1.7.4
 pytorch-tabnet
 transformers
 sentence-transformers
