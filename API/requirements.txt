@@ -11,6 +11,7 @@ pandas
 numpy
 torch
 passlib[bcrypt]==1.7.4
+python-multipart==0.0.12
 pytorch-tabnet
 transformers
 sentence-transformers
