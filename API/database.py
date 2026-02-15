@@ -2,12 +2,19 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL")
 
-# Default to a local postgres instance if env var not set
-SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:Nikki%401234@localhost/disease_prediction")
+if not SQLALCHEMY_DATABASE_URL:
+    raise ValueError("DATABASE_URL is not set")
+
+# Fix for Render postgres URL
+if SQLALCHEMY_DATABASE_URL.startswith("postgres://"):
+    SQLALCHEMY_DATABASE_URL = SQLALCHEMY_DATABASE_URL.replace(
+        "postgres://",
+        "postgresql://",
+        1
+    )
 
 engine = create_engine(SQLALCHEMY_DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
