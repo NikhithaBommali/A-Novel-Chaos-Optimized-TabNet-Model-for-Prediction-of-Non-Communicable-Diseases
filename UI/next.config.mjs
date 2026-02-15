@@ -6,6 +6,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      {
+        source: '/',
+        destination: '/auth/user/signup',
+        permanent: false,
+      },
+    ]
+  },
   devIndicators: {
     appIsrStatus: false,
     buildActivity: false,
