@@ -14,7 +14,10 @@ app = FastAPI(title="Disease Prediction API", description="Chaos-Optimized TabNe
 # Configure CORS for frontend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"], # Adjust if frontend runs on different port
+    allow_origins=[
+        "http://localhost:3000", 
+        "https://a-novel-chaos-optimized-tab-net-mod.vercel.app"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
