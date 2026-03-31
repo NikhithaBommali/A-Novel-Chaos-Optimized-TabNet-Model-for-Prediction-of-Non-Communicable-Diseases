@@ -1,0 +1,28 @@
+databases:
+  - name: chaos-tabnet-db
+    plan: free
+    databaseName: chaos_tabnet_db
+    user: chaos_tabnet_user
+
+services:
+  - type: web
+    name: chaos-tabnet-api
+    env: python
+    rootDir: API
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: chaos-tabnet-db
+          property: connectionString
+      - key: SECRET_KEY
+        generateValue: true
+      - key: ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: "30"
+      - key: CORS_ORIGINS
+        sync: false

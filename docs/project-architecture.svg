@@ -1,0 +1,106 @@
+<svg width="1600" height="1040" viewBox="0 0 1600 1040" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1600" y2="1040" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FBFF"/>
+      <stop offset="1" stop-color="#EEF2FF"/>
+    </linearGradient>
+    <linearGradient id="head" x1="0" y1="0" x2="1600" y2="0" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#2563EB"/>
+      <stop offset="1" stop-color="#7C3AED"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#0F172A" flood-opacity="0.10"/>
+    </filter>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0L12 6L0 12V0Z" fill="#475569"/>
+    </marker>
+    <style>
+      .title { font: 700 34px 'Inter', 'Segoe UI', sans-serif; fill: #FFFFFF; }
+      .subtitle { font: 500 16px 'Inter', 'Segoe UI', sans-serif; fill: #E0E7FF; }
+      .section { font: 700 22px 'Inter', 'Segoe UI', sans-serif; fill: #0F172A; }
+      .boxTitle { font: 700 18px 'Inter', 'Segoe UI', sans-serif; fill: #0F172A; }
+      .boxText { font: 500 14px 'Inter', 'Segoe UI', sans-serif; fill: #334155; }
+      .small { font: 600 13px 'Inter', 'Segoe UI', sans-serif; fill: #475569; }
+    </style>
+  </defs>
+
+  <rect width="1600" height="1040" rx="28" fill="url(#bg)"/>
+  <rect x="32" y="28" width="1536" height="110" rx="24" fill="url(#head)"/>
+  <text x="70" y="80" class="title">Project Architecture</text>
+  <text x="70" y="110" class="subtitle">Clean system view of the current frontend, backend, database, and ML flow</text>
+
+  <text x="80" y="190" class="section">Frontend</text>
+  <text x="615" y="190" class="section">Backend API</text>
+  <text x="1130" y="190" class="section">Data and ML</text>
+
+  <rect x="60" y="220" width="420" height="740" rx="28" fill="#FFFFFF" stroke="#BFDBFE" stroke-width="2"/>
+  <rect x="560" y="220" width="460" height="740" rx="28" fill="#FFFFFF" stroke="#C4B5FD" stroke-width="2"/>
+  <rect x="1100" y="220" width="440" height="740" rx="28" fill="#FFFFFF" stroke="#FBCFE8" stroke-width="2"/>
+
+  <rect x="95" y="270" width="350" height="120" rx="22" fill="#DBEAFE" stroke="#60A5FA" stroke-width="2" filter="url(#shadow)"/>
+  <text x="123" y="312" class="boxTitle">Auth Pages</text>
+  <text x="123" y="342" class="boxText">Admin login/signup</text>
+  <text x="123" y="366" class="boxText">User login/signup</text>
+
+  <rect x="95" y="430" width="350" height="140" rx="22" fill="#DBEAFE" stroke="#60A5FA" stroke-width="2" filter="url(#shadow)"/>
+  <text x="123" y="472" class="boxTitle">Admin Dashboard</text>
+  <text x="123" y="502" class="boxText">CSV upload</text>
+  <text x="123" y="526" class="boxText">Dataset view</text>
+  <text x="123" y="550" class="boxText">Stats and analytics cards</text>
+
+  <rect x="95" y="610" width="350" height="180" rx="22" fill="#DBEAFE" stroke="#60A5FA" stroke-width="2" filter="url(#shadow)"/>
+  <text x="123" y="652" class="boxTitle">User Dashboard</text>
+  <text x="123" y="682" class="boxText">Form-based prediction</text>
+  <text x="123" y="706" class="boxText">Chat-based assessment</text>
+  <text x="123" y="730" class="boxText">Prediction results</text>
+  <text x="123" y="754" class="boxText">Analytics charts</text>
+
+  <rect x="595" y="260" width="390" height="120" rx="22" fill="#EDE9FE" stroke="#A78BFA" stroke-width="2" filter="url(#shadow)"/>
+  <text x="623" y="302" class="boxTitle">Auth Router</text>
+  <text x="623" y="332" class="boxText">Signup</text>
+  <text x="623" y="356" class="boxText">Login</text>
+
+  <rect x="595" y="420" width="390" height="160" rx="22" fill="#EDE9FE" stroke="#A78BFA" stroke-width="2" filter="url(#shadow)"/>
+  <text x="623" y="462" class="boxTitle">Prediction Router</text>
+  <text x="623" y="492" class="boxText">Tabular prediction</text>
+  <text x="623" y="516" class="boxText">CSV upload</text>
+  <text x="623" y="540" class="boxText">Disease list</text>
+  <text x="623" y="564" class="boxText">Dashboard stats</text>
+
+  <rect x="595" y="620" width="390" height="140" rx="22" fill="#EDE9FE" stroke="#A78BFA" stroke-width="2" filter="url(#shadow)"/>
+  <text x="623" y="662" class="boxTitle">Chat Router</text>
+  <text x="623" y="692" class="boxText">Start session</text>
+  <text x="623" y="716" class="boxText">Collect answers</text>
+  <text x="623" y="740" class="boxText">Return final result</text>
+
+  <rect x="1135" y="260" width="370" height="140" rx="22" fill="#FEF3C7" stroke="#F59E0B" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1163" y="302" class="boxTitle">PostgreSQL Database</text>
+  <text x="1163" y="332" class="boxText">Users</text>
+  <text x="1163" y="356" class="boxText">Datasets and patient records</text>
+  <text x="1163" y="380" class="boxText">Predictions and chat history</text>
+
+  <rect x="1135" y="450" width="370" height="140" rx="22" fill="#D1FAE5" stroke="#10B981" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1163" y="492" class="boxTitle">Dataset Processing</text>
+  <text x="1163" y="522" class="boxText">Read CSV columns</text>
+  <text x="1163" y="546" class="boxText">Create metadata</text>
+  <text x="1163" y="570" class="boxText">Create dataset chunks</text>
+
+  <rect x="1135" y="640" width="370" height="180" rx="22" fill="#DCFCE7" stroke="#22C55E" stroke-width="2" filter="url(#shadow)"/>
+  <text x="1163" y="682" class="boxTitle">ML Layer</text>
+  <text x="1163" y="712" class="boxText">Data preprocessor</text>
+  <text x="1163" y="736" class="boxText">Chaos optimizer</text>
+  <text x="1163" y="760" class="boxText">TabNet model</text>
+  <text x="1163" y="784" class="boxText">Saved model + inference</text>
+
+  <path d="M445 330H595" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M445 500H595" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M445 700H595" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M985 320H1135" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M985 500H1135" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M985 690H1135" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M1320 400V450" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M1320 590V640" stroke="#475569" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <rect x="210" y="900" width="1180" height="42" rx="16" fill="#FFFFFF" stroke="#CBD5E1"/>
+  <text x="245" y="927" class="small">Main flow: frontend actions → FastAPI routers → database/services → ML inference or stored results</text>
+</svg>

@@ -1,0 +1,78 @@
+{
+  "dataset_overview": [
+    { "name": "Alzheimer's", "total": 2149, "positive": 760, "negative": 1389, "features": 33 },
+    { "name": "Breast Cancer", "total": 569, "positive": 357, "negative": 212, "features": 5 },
+    { "name": "Heart Disease", "total": 1000, "positive": 392, "negative": 608, "features": 12 },
+    { "name": "Diabetes", "total": 768, "positive": 268, "negative": 500, "features": 8 },
+    { "name": "Lung Cancer", "total": 1000, "positive": 365, "negative": 635, "features": 23 }
+  ],
+  "performance": {
+    "alz": {
+      "label": "Alzheimer's",
+      "baseline": { "accuracy": 89.2, "precision": 88.7, "sensitivity": 90.1, "specificity": 88.3, "f1": 89.4, "auroc": 91.0 },
+      "chaos": { "accuracy": 93.8, "precision": 93.2, "sensitivity": 94.5, "specificity": 92.6, "f1": 93.8, "auroc": 96.0 }
+    },
+    "breast": {
+      "label": "Breast Cancer",
+      "baseline": { "accuracy": 92.4, "precision": 93.1, "sensitivity": 91.8, "specificity": 93.5, "f1": 92.4, "auroc": 95.0 },
+      "chaos": { "accuracy": 95.2, "precision": 95.8, "sensitivity": 94.9, "specificity": 95.7, "f1": 95.3, "auroc": 98.0 }
+    },
+    "heart": {
+      "label": "Heart Disease",
+      "baseline": { "accuracy": 88.5, "precision": 87.9, "sensitivity": 89.3, "specificity": 87.6, "f1": 88.6, "auroc": 90.0 },
+      "chaos": { "accuracy": 94.1, "precision": 93.6, "sensitivity": 95.2, "specificity": 92.8, "f1": 94.4, "auroc": 97.0 }
+    },
+    "diabetes": {
+      "label": "Diabetes",
+      "baseline": { "accuracy": 89.0, "precision": 88.2, "sensitivity": 90.1, "specificity": 87.9, "f1": 89.1, "auroc": 91.0 },
+      "chaos": { "accuracy": 92.6, "precision": 92.1, "sensitivity": 93.1, "specificity": 91.8, "f1": 92.6, "auroc": 95.0 }
+    },
+    "lung": {
+      "label": "Lung Cancer",
+      "baseline": { "accuracy": 90.3, "precision": 90.9, "sensitivity": 89.2, "specificity": 90.8, "f1": 90.0, "auroc": 93.0 },
+      "chaos": { "accuracy": 94.5, "precision": 94.9, "sensitivity": 95.1, "specificity": 93.7, "f1": 95.0, "auroc": 97.0 }
+    }
+  },
+  "error_metrics": [
+    { "name": "Alz.", "baselineMae": 0.058, "chaosMae": 0.025, "baselineRmse": 0.241, "chaosRmse": 0.158, "baselineMape": 2.9, "chaosMape": 1.25 },
+    { "name": "Breast", "baselineMae": 0.044, "chaosMae": 0.011, "baselineRmse": 0.21, "chaosRmse": 0.107, "baselineMape": 2.2, "chaosMape": 0.55 },
+    { "name": "Heart", "baselineMae": 0.115, "chaosMae": 0.032, "baselineRmse": 0.339, "chaosRmse": 0.181, "baselineMape": 5.75, "chaosMape": 1.6 },
+    { "name": "Diab.", "baselineMae": 0.109, "chaosMae": 0.068, "baselineRmse": 0.33, "chaosRmse": 0.26, "baselineMape": 5.45, "chaosMape": 3.4 },
+    { "name": "Lung", "baselineMae": 0.085, "chaosMae": 0.042, "baselineRmse": 0.291, "chaosRmse": 0.205, "baselineMape": 4.25, "chaosMape": 2.1 }
+  ],
+  "model_comparison": [
+    { "name": "Logistic Regression", "accuracy": 79.5 },
+    { "name": "Random Forest", "accuracy": 85.3 },
+    { "name": "XGBoost", "accuracy": 88.1 },
+    { "name": "Tabular Transformer", "accuracy": 87.6 },
+    { "name": "Standard TabNet", "accuracy": 88.5 },
+    { "name": "Chaos-Opt TabNet", "accuracy": 94.1 }
+  ],
+  "confusion_matrices": [
+    {
+      "name": "Alzheimer's",
+      "baseline": [[441, 59], [108, 392]],
+      "chaos": [[463, 37], [24, 476]]
+    },
+    {
+      "name": "Breast Cancer",
+      "baseline": [[470, 30], [46, 454]],
+      "chaos": [[479, 21], [6, 494]]
+    },
+    {
+      "name": "Heart Disease",
+      "baseline": [[438, 62], [53, 447]],
+      "chaos": [[480, 20], [13, 487]]
+    },
+    {
+      "name": "Diabetes",
+      "baseline": [[440, 60], [50, 450]],
+      "chaos": [[459, 41], [34, 466]]
+    },
+    {
+      "name": "Lung Cancer",
+      "baseline": [[454, 46], [54, 446]],
+      "chaos": [[469, 31], [12, 488]]
+    }
+  ]
+}
