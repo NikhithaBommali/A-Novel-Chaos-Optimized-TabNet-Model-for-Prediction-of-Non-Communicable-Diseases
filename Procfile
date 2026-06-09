@@ -1,0 +1,1 @@
+web: bash -lc 'set -e; echo "[preview] verifying API imports"; cd API && python verify_imports.py && echo "[preview] starting API on :8000" && (uvicorn main:app --host 0.0.0.0 --port 8000 &) && echo "[preview] starting UI on :3000" && cd ../UI && npm run dev -- --hostname 0.0.0.0'
