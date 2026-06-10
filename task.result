@@ -1,0 +1,1 @@
+{"status":"blocked","files_created":["UI/README.preview-blocked.md"],"reason":"Expected Next.js app under UI/ was not present in the workspace, so no real implementation edits could be made.","required_next_step":"Sync the repository/branch into the workspace so UI/ is available, then rerun the task."}
