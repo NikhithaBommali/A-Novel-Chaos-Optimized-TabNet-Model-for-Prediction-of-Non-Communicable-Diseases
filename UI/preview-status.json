@@ -1,0 +1,9 @@
+{
+  "status": "blocked",
+  "reason": "missing_repository_files",
+  "details": "Expected existing Next.js app sources under UI/ were not present in the workspace, so no faithful preview fix could be applied.",
+  "checked": [
+    "UI/**/*",
+    "**/*"
+  ]
+}
