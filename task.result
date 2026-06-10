@@ -1,0 +1,1 @@
+{"status":"blocked","reason":"The task workspace is empty and does not contain the required UI/ directory or any repository files. Verified via glob and shell listing. No in-scope frontend files exist to inspect or modify.","required_next_step":"Sync the repository/branch into the workspace so UI/ is available, then rerun the task."}
