@@ -1,42 +1,57 @@
-import os
+from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from database import engine, Base
-import models
-from auth import router as auth_router
-from endpoints import router as predict_router
-from chat import router as chat_router
 
-# Create tables on startup (or use create_tables.py separately)
-models.Base.metadata.create_all(bind=engine)
+from app.auth import router as auth_router
+from app.chat import router as chat_router
+from app.database import Base, engine
+from app.endpoints import router as predict_router
+from app.summary import build_project_summary
 
-app = FastAPI(title="Disease Prediction API", description="Chaos-Optimized TabNet Backend")
+# API CONTRACT
+# GET  /api/health
+#   response: {"ok": true}
+# GET  /api/project-summary
+#   response: {"repositoryType": str, "summary": str, "artifacts": list[str], "runNotes": list[str]}
+# POST /predict/tabular
+#   request: {"features": dict, "disease_type": str}
+#   response: list[{"disease": str, "risk_score": float, "risk_level": str, "explanation": str}]
+# GET  /predict/datasets/unique-diseases
+#   response: list[str]
+# POST /predict/upload_csv
+#   request: multipart file + disease_type form field
+#   response: {"message": str}
+# GET  /predict/dashboard/admin-uploads
+#   response: {"filenames": list[str]}
+# GET  /predict/dashboard/admin-stats
+#   response: object with aggregated admin stats
 
-# Browsers reject Access-Control-Allow-Origin: * together with credentialed requests
-# (e.g. Authorization: Bearer). List explicit origins instead.
-_cors_origins = [
-    "http://localhost:3000",
-    "http://127.0.0.1:3000",
-]
-for _part in os.getenv("CORS_ORIGINS", "").split(","):
-    _o = _part.strip()
-    if _o and _o not in _cors_origins:
-        _cors_origins.append(_o)
 
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    Base.metadata.create_all(bind=engine)
+    yield
+
+
+app = FastAPI(title="Disease Prediction API", description="Chaos-Optimized TabNet Backend", lifespan=lifespan)
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=_cors_origins,
-    allow_credentials=True,
+    allow_origins=["*"],
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-# Include Routers
 app.include_router(auth_router)
 app.include_router(predict_router)
 app.include_router(chat_router)
 
-@app.get("/")
-def read_root():
-    return {"message": "Disease Prediction API is running"}
+
+@app.get("/api/health")
+def health() -> dict[str, bool]:
+    return {"ok": True}
+
+
+@app.get("/api/project-summary")
+def project_summary() -> dict[str, object]:
+    return build_project_summary()
